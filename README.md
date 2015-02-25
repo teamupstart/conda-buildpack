@@ -18,5 +18,3 @@ Like when using the standard buildpack for python from Heroku, you can also
 still supply a `requirements.txt` file for [pip](https://github.com/pypa/pip)
 to process.  In this way, you can install binary packages via conda for
 everything you can and still use pip for anything you can't.
-Usage
------
