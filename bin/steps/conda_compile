@@ -13,10 +13,5 @@ if [ -f conda-requirements.txt ]; then
     conda install --file conda-requirements.txt --yes | indent
 fi
 
-if [ -f requirements.txt ]; then
-    puts-step "Installing dependencies using Pip"
-    pip install -r requirements.txt  --exists-action=w --allow-all-external | indent
-fi
-
 puts-step "Cleaning up the installation environment."
 conda clean -pt --yes > /dev/null
