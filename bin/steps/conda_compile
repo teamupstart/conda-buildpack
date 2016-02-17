@@ -1,3 +1,5 @@
+export PATH=/app/.heroku/miniconda/bin:$PATH
+
 if [ ! -d /app/.heroku/miniconda ]; then
     puts-step "Preparing Python3/Miniconda Environment (3.8.3)"
     curl -Os http://repo.continuum.io/miniconda/Miniconda3-3.8.3-Linux-x86_64.sh
