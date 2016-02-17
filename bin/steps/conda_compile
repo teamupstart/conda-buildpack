@@ -1,4 +1,4 @@
-export PATH=/app/.heroku/miniconda/bin:$PATH
+export PATH=/app/.heroku/miniconda3/bin:$PATH
 
 if [ ! -d /app/.heroku/miniconda ]; then
     puts-step "Preparing Python3/Miniconda Environment (3.8.3)"
@@ -16,4 +16,4 @@ if [ -f conda-requirements.txt ]; then
 fi
 
 puts-step "Cleaning up the installation environment."
-conda clean -pt --yes > /dev/null
+conda clean -pt --yes
