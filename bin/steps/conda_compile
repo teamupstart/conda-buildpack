@@ -1,13 +1,17 @@
 export PATH=/app/.heroku/miniconda/bin:$PATH
 
-if [ ! -d /app/.heroku/miniconda ]; then
-    puts-step "Preparing Python3/Miniconda Environment"
-    curl -Os https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
-    bash Miniconda3-latest-Linux-x86_64.sh -p /app/.heroku/miniconda/ -b | indent
-    rm -fr Miniconda3-latest-Linux-x86_64.sh
+if [ -d /app/.heroku/miniconda ]; then
+    puts-step "Removing existing Conda Environment"
 
-    conda install pip --yes | indent
+    rm -fr /app/.heroku/miniconda
 fi
+
+puts-step "Preparing Python3/Miniconda Environment"
+curl -Os https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh -p /app/.heroku/miniconda/ -b | indent
+rm -fr Miniconda3-latest-Linux-x86_64.sh
+
+conda install pip --yes | indent
 
 if [ -f install_dependencies.sh ]; then
   puts-step "Installing dependencies using Conda"
