@@ -17,3 +17,13 @@ if [ -f install_dependencies.sh ]; then
   puts-step "Installing dependencies using Conda"
   source install_dependencies.sh
 fi
+
+if [ -f conda-requirements.txt ]; then
+    puts-step "Installing dependencies using Conda"
+    conda install --file conda-requirements.txt --yes | indent
+fi
+
+if [ -f requirements.txt ]; then
+    puts-step "Installing dependencies using Pip"
+    pip install -r requirements.txt  --exists-action=w --allow-all-external | indent
+fi
