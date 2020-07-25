@@ -7,7 +7,7 @@ if [ -d /app/.heroku/miniconda ]; then
 fi
 
 puts-step "Preparing Python3/Miniconda Environment"
-curl -O --insecure https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh 
+curl -O --insecure https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh 
 bash Miniconda3-latest-Linux-x86_64.sh -p /app/.heroku/miniconda/ -b | indent
 rm -fr Miniconda3-latest-Linux-x86_64.sh
 
